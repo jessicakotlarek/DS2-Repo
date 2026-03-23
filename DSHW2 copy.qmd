@@ -1,0 +1,104 @@
+---
+title: "My First Quarto Presentation"
+subtitle: "DS HW2"
+author: "<br>Jess Kotlarek"
+editor: visual
+format: 
+    revealjs:
+        theme: serif
+        highlight-style: tango
+        embed-resources: true
+        smaller: true
+execute: 
+  message: false
+  warning: false
+  echo: true
+---
+
+```{r setup, echo = FALSE}
+library(tidyverse)
+library(corrplot)
+library(explore) # mtcars dataset
+```
+
+# mtcars
+
+::: incremental
+-   mtcars is the dataset we are using in the homework
+    -   It contains fuel consumption and 10 aspects of automobile design and performance for 32 automobiles
+-   It can be found [[*here*]{.underline}](https://cran.r-project.org/web/packages/explore/vignettes/explore-mtcars.html) on CRAN
+:::
+
+# mtcars Data
+
+```{r}
+#| eval: false
+mtcars
+```
+
+::: fragment
+```{r}
+#| echo: false
+mtcars
+```
+
+-   scroll to see more entries
+:::
+
+# mtcars Table
+
+```{r}
+vs_table <- table(mtcars$vs)
+names(vs_table) <- c("V-shaped engines", "Straight engines")
+```
+
+::: fragment
+```{r}
+#| echo: false
+vs_table
+```
+:::
+
+# mtcars Graph
+
+```{r}
+#| eval: false
+ggplot(mtcars, aes(x=disp, y=mpg)) +
+    geom_point() +
+    labs(x = "Disp",
+         y = "Miles per Gallon",
+         title = "Graph Comparing Disp and Miles per Gallon")
+```
+
+::: fragment
+```{r}
+#| echo: false
+ggplot(mtcars, aes(x=disp, y=mpg)) +
+    geom_point() +
+    labs(x = "Disp",
+         y = "Miles per Gallon",
+         title = "Graph Comparing Disp and Miles per Gallon")
+```
+:::
+
+# mtcars Corrplot
+
+```{r}
+#| eval: false
+mtcars |>
+    select(where(is.numeric)) |> 
+    cor() |> 
+    corrplot(diag = F, type = "lower")
+```
+
+::: fragment
+```{r}
+#| echo: false
+mtcars |>
+    select(where(is.numeric)) |> 
+    cor() |> 
+    corrplot(diag = F, type = "lower")
+```
+:::
+
+# Thank You!
