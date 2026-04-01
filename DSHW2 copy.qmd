@@ -23,6 +23,8 @@ library(explore) # mtcars dataset
 
 # mtcars
 
+<!--# Really nice that you linked the CRAN page directly...super helpful for anyone who wants to dig deeper into the dataset. One small idea: adding a sentence about what each of the 10 variables measures could help the audience follow along better in the later slides. -->
+
 ::: incremental
 -   mtcars is the dataset we are using in the homework
     -   It contains fuel consumption and 10 aspects of automobile design and performance for 32 automobiles
@@ -30,6 +32,8 @@ library(explore) # mtcars dataset
 :::
 
 # mtcars Data
+
+<!--# Showing the code first and then the output is a clean way to walk the audience through what is happening before showing them the full table. The "scroll to see more entries" note is a nice touch too! -->
 
 ```{r}
 #| eval: false
@@ -52,6 +56,8 @@ vs_table <- table(mtcars$vs)
 names(vs_table) <- c("V-shaped engines", "Straight engines")
 ```
 
+<!--# I like that you renamed the 0/1 values to actual engine names, makes the table way more readable! -->
+
 ::: fragment
 ```{r}
 #| echo: false
@@ -60,6 +66,8 @@ vs_table
 :::
 
 # mtcars Graph
+
+<!--# Great scatterplot! One idea: coloring the points by number of cylinders using color=factor(cyl) inside aes() could add another layer of info without cluttering the plot at all. -->
 
 ```{r}
 #| eval: false
@@ -102,3 +110,5 @@ mtcars |>
 :::
 
 # Thank You!
+
+<!--# Nice presentation overall, the use of fragments throughout kept it easy to follow! -->
