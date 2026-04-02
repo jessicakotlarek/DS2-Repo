@@ -25,11 +25,26 @@ library(explore) # mtcars dataset
 
 <!--# Really nice that you linked the CRAN page directly...super helpful for anyone who wants to dig deeper into the dataset. One small idea: adding a sentence about what each of the 10 variables measures could help the audience follow along better in the later slides. -->
 
-::: incremental
 -   mtcars is the dataset we are using in the homework
-    -   It contains fuel consumption and 10 aspects of automobile design and performance for 32 automobiles
--   It can be found [[*here*]{.underline}](https://cran.r-project.org/web/packages/explore/vignettes/explore-mtcars.html) on CRAN
+    -   It contains fuel consumption and 11 aspects of automobile design and performance for 32 automobiles
+
+::: incremental
+```         
+    -   mpg: Miles/(US) gallon
+    -   cyl: Number of cylinders
+    -   disp: Displacement (cu.in.)
+    -   hp: Gross horsepower
+    -   drat: Rear axle ratio
+    -   wt: Weight (1000 lbs)
+    -   qsec: 1/4 mile time
+    -   vs: Engine (0 = V-shaped, 1 = straight)
+    -   am: Transmission (0 = automatic, 1 = manual)
+    -   gear: Number of forward gears
+    -   carb: Number of carburetors
+```
 :::
+
+-   It can be found [[*here*]{.underline}](https://cran.r-project.org/web/packages/explore/vignettes/explore-mtcars.html) on CRAN
 
 # mtcars Data
 

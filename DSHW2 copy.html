@@ -1066,11 +1066,24 @@ margin-right: 0; }
 <h1>mtcars</h1>
 <!--# Really nice that you linked the CRAN page directly...super helpful for anyone who wants to dig deeper into the dataset. One small idea: adding a sentence about what each of the 10 variables measures could help the audience follow along better in the later slides. -->
 <ul>
-<li class="fragment">mtcars is the dataset we are using in the homework
+<li>mtcars is the dataset we are using in the homework
 <ul>
-<li class="fragment">It contains fuel consumption and 10 aspects of automobile design and performance for 32 automobiles</li>
+<li>It contains fuel consumption and 11 aspects of automobile design and performance for 32 automobiles</li>
 </ul></li>
-<li class="fragment">It can be found <a href="https://cran.r-project.org/web/packages/explore/vignettes/explore-mtcars.html"><u><em>here</em></u></a> on CRAN</li>
+</ul>
+<pre><code>    -   mpg: Miles/(US) gallon
+    -   cyl: Number of cylinders
+    -   disp: Displacement (cu.in.)
+    -   hp: Gross horsepower
+    -   drat: Rear axle ratio
+    -   wt: Weight (1000 lbs)
+    -   qsec: 1/4 mile time
+    -   vs: Engine (0 = V-shaped, 1 = straight)
+    -   am: Transmission (0 = automatic, 1 = manual)
+    -   gear: Number of forward gears
+    -   carb: Number of carburetors</code></pre>
+<ul>
+<li>It can be found <a href="https://cran.r-project.org/web/packages/explore/vignettes/explore-mtcars.html"><u><em>here</em></u></a> on CRAN</li>
 </ul>
 </section>
 
@@ -1078,7 +1091,7 @@ margin-right: 0; }
 <h1>mtcars Data</h1>
 <!--# Showing the code first and then the output is a clean way to walk the audience through what is happening before showing them the full table. The "scroll to see more entries" note is a nice touch too! -->
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a>mtcars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href></a>mtcars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
@@ -1127,8 +1140,8 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <section id="mtcars-table" class="title-slide slide level1 center">
 <h1>mtcars Table</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a>vs_table <span class="ot">&lt;-</span> <span class="fu">table</span>(mtcars<span class="sc">$</span>vs)</span>
-<span id="cb3-2"><a href></a><span class="fu">names</span>(vs_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;V-shaped engines&quot;</span>, <span class="st">&quot;Straight engines&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href></a>vs_table <span class="ot">&lt;-</span> <span class="fu">table</span>(mtcars<span class="sc">$</span>vs)</span>
+<span id="cb4-2"><a href></a><span class="fu">names</span>(vs_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;V-shaped engines&quot;</span>, <span class="st">&quot;Straight engines&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!--# I like that you renamed the 0/1 values to actual engine names, makes the table way more readable! -->
 <div class="fragment">
@@ -1145,11 +1158,11 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <h1>mtcars Graph</h1>
 <!--# Great scatterplot! One idea: coloring the points by number of cylinders using color=factor(cyl) inside aes() could add another layer of info without cluttering the plot at all. -->
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Disp&quot;</span>,</span>
-<span id="cb5-4"><a href></a>         <span class="at">y =</span> <span class="st">&quot;Miles per Gallon&quot;</span>,</span>
-<span id="cb5-5"><a href></a>         <span class="at">title =</span> <span class="st">&quot;Graph Comparing Disp and Miles per Gallon&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Disp&quot;</span>,</span>
+<span id="cb6-4"><a href></a>         <span class="at">y =</span> <span class="st">&quot;Miles per Gallon&quot;</span>,</span>
+<span id="cb6-5"><a href></a>         <span class="at">title =</span> <span class="st">&quot;Graph Comparing Disp and Miles per Gallon&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
@@ -1167,10 +1180,10 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <section id="mtcars-corrplot" class="title-slide slide level1 center">
 <h1>mtcars Corrplot</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href></a>mtcars <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href></a>    <span class="fu">cor</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb6-4"><a href></a>    <span class="fu">corrplot</span>(<span class="at">diag =</span> F, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href></a>mtcars <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href></a>    <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href></a>    <span class="fu">cor</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href></a>    <span class="fu">corrplot</span>(<span class="at">diag =</span> F, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
